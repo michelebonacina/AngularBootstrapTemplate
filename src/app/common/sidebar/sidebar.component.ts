@@ -20,7 +20,7 @@ export class SidebarComponent implements OnInit {
   private shownMenu: String = '';
 
   // public properties
-  public isSidebarToggled: Boolean = false;
+  isSidebarToggled: Boolean = false;
 
   // constructor
   constructor() { } // constructor
