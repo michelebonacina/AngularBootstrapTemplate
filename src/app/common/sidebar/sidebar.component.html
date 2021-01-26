@@ -1,6 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" [ngClass]="isSidebarToggled ? 'toggled' : ''"
-  id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" [ngClass]="isSidebarToggled ? 'toggled' : ''" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -31,8 +30,7 @@
 
   <!-- Nav Item - Components Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" (click)="showMenu('components')"
-      [attr.aria-expanded]="isMenuShown('components')">
+    <a class="nav-link collapsed" href="#" (click)="showMenu('components')" [attr.aria-expanded]="isMenuShown('components')">
       <fa-icon [icon]="faCog"></fa-icon>
       <span>Components</span>
       <div class="collapse-icon" *ngIf="!isSidebarToggled">
@@ -40,8 +38,7 @@
         <fa-icon *ngIf="isMenuShown('components')" [icon]="faAngleDown"></fa-icon>
       </div>
     </a>
-    <div [ngbCollapse]="!isMenuShown('components')" class="collapse" aria-labelledby="headingTwo"
-      data-parent="#accordionSidebar">
+    <div [ngbCollapse]="!isMenuShown('components')" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Custom Components:</h6>
         <a class="collapse-item" href="buttons.html">Buttons</a>
@@ -68,8 +65,7 @@
         <fa-icon *ngIf="isMenuShown('pages')" [icon]="faAngleDown"></fa-icon>
       </div>
     </a>
-    <div [ngbCollapse]="!isMenuShown('pages')" class="collapse" aria-labelledby="headingTwo"
-      data-parent="#accordionSidebar">
+    <div [ngbCollapse]="!isMenuShown('pages')" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Login Screens:</h6>
         <a class="collapse-item" href="login.html">Login</a>
