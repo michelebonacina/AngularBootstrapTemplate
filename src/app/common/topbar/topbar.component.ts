@@ -47,9 +47,14 @@ export class TopbarComponent implements OnInit {
 
   // open logout popup confirmation
   showLogoutDialog(content: any) {
+    // hide menu
+    this.showMenu('');
+    // show modal
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      // closed with a buttons
       console.log(result);
     }, (reason) => {
+      // closed otherwise
       console.log(reason);
     });
   }
