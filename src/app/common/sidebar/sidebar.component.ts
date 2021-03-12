@@ -1,5 +1,8 @@
+// librerie
 import { Component, OnInit } from '@angular/core';
 import { faAngleDown, faAngleLeft, faAngleRight, faCog, faLaughWink, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+
+// moduli applicativi
 import { ToggleService } from '../@core/toggle.service';
 
 @Component({
@@ -9,7 +12,7 @@ import { ToggleService } from '../@core/toggle.service';
 })
 export class SidebarComponent implements OnInit {
 
-  // initialize icons
+  // inizializza le icone
   faAngleDown = faAngleDown;
   faAngleLeft = faAngleLeft;
   faAngleRight = faAngleRight;
@@ -17,26 +20,26 @@ export class SidebarComponent implements OnInit {
   faLaughWink = faLaughWink;
   faTachometerAlt = faTachometerAlt;
 
-  // private properties
+  // proprietà private
   private _shownMenu: string = '';
 
   /**
-   * constructor
-   * @param {ToggleService} toggleService manage components toggle visibility
+   * crea un nuovo componente
+   * @param {ToggleService} toggleService gestore della visibilità dei componenti
    */
   constructor(
     public toggleService: ToggleService
   ) { } // constructor
 
   /**
-   * component initialization
+   * inizializza il componente
    */
   ngOnInit(): void {
   } // ngOnInit
 
   /**
-   * shows the given menu
-   * @param {string} menu menu to be shown
+   * visualizza il menu specificato
+   * @param {string} menu menu da visualizzare
    */
   showMenu(menu: string) {
     if (this.isMenuShown(menu)) {
@@ -47,17 +50,17 @@ export class SidebarComponent implements OnInit {
   } // showMenu
 
   /**
-   * checks if given menu is shown
-   * @param {string} menu menu to ckeck
-   * @returns {boolean} true if menu is visible, false otherwise
+   * controlla se il menu specificato è quello da visualizzare
+   * @param {string} menu menu da controllare
+   * @returns {boolean} true se il menu è visibile, false altrimenti
    */
   isMenuShown(menu: string): boolean {
     return this._shownMenu == menu;
   } // isMenuShown
 
   /**
-   * toggle sidebar visibility
-   * switch sidebar from visible to hidden
+   * inverte le visibilità della sidebar
+   * se la sidebar è visibile la nasconde, se nascosta la visalizza
    */
   toggleSidebar() {
     this.toggleService.showSidebar = !this.toggleService.showSidebar;

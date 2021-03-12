@@ -9,7 +9,7 @@
   <!-- Topbar Search -->
   <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
     <div class="input-group">
-      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+      <input type="text" class="form-control bg-light border-0 small" placeholder="{{'common.topbar.searchFor' | translate}}" aria-label="Search" aria-describedby="basic-addon2">
       <div class="input-group-append">
         <button class="btn btn-primary" type="button">
           <fa-icon class="search-icon" [icon]="faSearch"></fa-icon>
@@ -141,22 +141,22 @@
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" [ngClass]="isMenuShown('user') ? 'show' : ''">
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" href="#" translate>
           <fa-icon [icon]="faUser" class="mr-2 text-gray-400"></fa-icon>
-          Profile
+          common.topbar.userMenu.profile
         </a>
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" href="#" translate>
           <fa-icon [icon]="faCog" class="mr-2 text-gray-400"></fa-icon>
-          Settings
+          common.topbar.userMenu.settings
         </a>
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" href="#" translate>
           <fa-icon [icon]="faList" class="mr-2 text-gray-400"></fa-icon>
-          Activity Log
+          common.topbar.userMenu.activityLog
         </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" (click)="showLogoutDialog(content)">
+        <a class="dropdown-item" href="#" (click)="showLogoutDialog(content)" translate>
           <fa-icon [icon]="faSignOutAlt" class="mr-2 text-gray-400"></fa-icon>
-          Logout
+          common.topbar.userMenu.logout
         </a>
       </div>
     </li>
