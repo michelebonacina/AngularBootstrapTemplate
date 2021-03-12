@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { faBell, faCog, faDonate, faEnvelope, faExclamationTriangle, faFileAlt, faList, faSearch, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBell, faCog, faDonate, faEnvelope, faExclamationTriangle, faFileAlt, faList, faSearch, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { ToggleService } from '../@core/toggle.service';
 
 @Component({
   selector: 'app-topbar',
@@ -10,6 +11,7 @@ import { faBell, faCog, faDonate, faEnvelope, faExclamationTriangle, faFileAlt, 
 export class TopbarComponent implements OnInit {
 
   // initialize icons
+  faBars = faBars;
   faBell = faBell;
   faCog = faCog;
   faDonate = faDonate;
@@ -22,30 +24,49 @@ export class TopbarComponent implements OnInit {
   faUser = faUser;
 
   // private properties
-  private shownMenu: String = '';
+  private _shownMenu: string = '';
 
-  // constructor
-  constructor(private modalService: NgbModal) { } // constructor
+  /**
+   * constructor
+   * @param {NgbModal} modalService manage modal windows
+   * @param {ToggleService} toggleService manage components toggle visibility
+   */
+  constructor(
+    private modalService: NgbModal,
+    private toggleService: ToggleService,
+  ) { } // constructor
 
-  // component initialization
+  /**
+   * component initialization
+   */
   ngOnInit(): void {
   } // ngOnInit
 
-  // show the given menu
-  showMenu(menu: String) {
+  /**
+   * shows the given menu
+   * @param {string} menu menu to be shown
+   */
+  showMenu(menu: string) {
     if (this.isMenuShown(menu)) {
-      this.shownMenu = '';
+      this._shownMenu = '';
     } else {
-      this.shownMenu = menu;
+      this._shownMenu = menu;
     }
   } // showMenu
 
-  // check if given menu is shown
-  isMenuShown(menu: String): boolean {
-    return this.shownMenu == menu;
+  /**
+   * checks if given menu is shown
+   * @param {string} menu menu to ckeck
+   * @returns {boolean} true if menu is visible, false otherwise
+   */
+  isMenuShown(menu: string): boolean {
+    return this._shownMenu == menu;
   } // isMenuShowed
 
-  // open logout popup confirmation
+  /**
+   * open logout popup confirmation
+   * @param {any} content content to show in popup
+   */
   showLogoutDialog(content: any) {
     // hide menu
     this.showMenu('');
@@ -57,6 +78,14 @@ export class TopbarComponent implements OnInit {
       // closed otherwise
       console.log(reason);
     });
-  }
+  } // showLogoutDialog
+
+  /**
+   * toggle sidebar visibility.
+   * switch sidebar from visible to hidden.
+   */
+  toggleSidebar() {
+    this.toggleService.showSidebar = !this.toggleService.showSidebar;
+  } // toggleSidebar
 
 } // TopbarComponent
