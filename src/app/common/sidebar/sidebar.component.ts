@@ -4,6 +4,7 @@ import { faAngleDown, faAngleLeft, faAngleRight, faCog, faLaughWink, faTachomete
 
 // moduli applicativi
 import { ToggleService } from '../@core/toggle.service';
+import { MENU_ITEMS } from './@config/sidebar-menu.config';
 
 @Component({
   selector: 'app-sidebar',
@@ -22,6 +23,9 @@ export class SidebarComponent implements OnInit {
 
   // proprietà private
   private _shownMenu: string = '';
+
+  // proprietà pubbliche
+  menuItems = MENU_ITEMS;
 
   /**
    * crea un nuovo componente

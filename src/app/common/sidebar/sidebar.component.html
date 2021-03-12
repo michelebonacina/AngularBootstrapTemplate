@@ -14,9 +14,9 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
-    <a class="nav-link" href="#" (click)="showMenu('')">
-      <fa-icon [icon]="faTachometerAlt"></fa-icon>
-      <span translate>common.sidebar.menu.dashboard</span>
+    <a class="nav-link" [href]="menuItems[0].link" (click)="showMenu('')">
+      <fa-icon [icon]="menuItems[0].icon"></fa-icon>
+      <span translate>{{menuItems[0].i18n}}</span>
     </a>
   </li>
 
