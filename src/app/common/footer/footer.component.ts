@@ -1,3 +1,4 @@
+// librerie
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   /**
-   * constructor
+   * crea un nuovo componente
    */
   constructor() { } // constructor
 
   /**
-   * component initialization
+   * inizializza il componente
    */
   ngOnInit(): void {
   } // ngOnInit

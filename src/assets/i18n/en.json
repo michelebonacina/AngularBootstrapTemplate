@@ -1,0 +1,18 @@
+{
+  "common": {
+    "topbar": {
+      "searchFor": "search for...",
+      "userMenu": {
+        "profile": "Profile",
+        "settings": "Settings",
+        "activityLog": "Activity Log",
+        "logout": "Logout"
+      }
+    },
+    "sidebar": {
+      "menu": {
+        "dashboard": "Dashbaord"
+      }
+    }
+  }
+}
