@@ -7,7 +7,7 @@
   </button>
 
   <!-- Topbar Search -->
-  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+  <form *ngIf="appConfig.topbarSearchActive" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
     <div class="input-group">
       <input type="text" class="form-control bg-light border-0 small" placeholder="{{'common.topbar.searchFor' | translate}}" aria-label="Search" aria-describedby="basic-addon2">
       <div class="input-group-append">
@@ -22,7 +22,7 @@
   <ul class="navbar-nav ml-auto">
 
     <!-- Nav Item - Alerts -->
-    <li class="nav-item dropdown no-arrow mx-1">
+    <li *ngIf="appConfig.alertCenterActive" class="nav-item dropdown no-arrow mx-1">
       <a class="nav-link dropdown-toggle" href="#" (click)="onShowMenu('alerts')" role="button" aria-expanded="false">
         <fa-icon [icon]="faBell"></fa-icon>
         <!-- Counter - Alerts -->
@@ -71,7 +71,7 @@
     </li>
 
     <!-- Nav Item - Messages -->
-    <li class="nav-item dropdown no-arrow mx-1">
+    <li *ngIf="appConfig.messageCenterActive" class="nav-item dropdown no-arrow mx-1">
       <a class="nav-link dropdown-toggle" href="#" (click)="onShowMenu('messages')" role="button" aria-expanded="false">
         <fa-icon [icon]="faEnvelope"></fa-icon>
         <!-- Counter - Messages -->
@@ -149,7 +149,7 @@
           <fa-icon [icon]="faCog" class="mr-2 text-gray-400"></fa-icon>
           common.topbar.userMenu.settings
         </a>
-        <a class="dropdown-item" href="#" translate>
+        <a *ngIf="appConfig.logCenterActive" class="dropdown-item" href="#" translate>
           <fa-icon [icon]="faList" class="mr-2 text-gray-400"></fa-icon>
           common.topbar.userMenu.activityLog
         </a>
