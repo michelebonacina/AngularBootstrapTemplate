@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ToggleService } from './toggle.service';
+import { TogglerService } from './toggler.service';
 
 describe('ToggleService', () => {
-  let service: ToggleService;
+  let service: TogglerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ToggleService);
+    service = TestBed.inject(TogglerService);
   });
 
   it('should be created', () => {
