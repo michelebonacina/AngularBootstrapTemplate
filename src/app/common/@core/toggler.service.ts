@@ -20,6 +20,7 @@ export class TogglerService {
    * @returns {EventEmitter} emitter dello stato della sidebar
    */
   public get sidebarChanged(): EventEmitter<boolean> {
+    // TODO sostituire con observable
     return this._sidebarChanged;
   } // get sidebarChanged
 
@@ -29,7 +30,6 @@ export class TogglerService {
    */
   public set showSidebar(show: boolean) {
     this._showSidebar = show;
-    // TODO sostituire con observable
     this.sidebarChanged.emit(this._showSidebar);
   } // get showSidebar
 
