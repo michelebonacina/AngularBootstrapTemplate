@@ -4,7 +4,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { faBars, faBell, faCog, faDonate, faEnvelope, faExclamationTriangle, faFileAlt, faList, faSearch, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 
 // moduli applicativi
-import { ToggleService } from '../@core/toggle.service';
+import { TogglerService } from '../@core/toggler.service';
 
 @Component({
   selector: 'app-topbar',
@@ -32,11 +32,11 @@ export class TopbarComponent implements OnInit {
   /**
    * crea un nuovo componente
    * @param {NgbModal} modalService gestore delle finestre modali
-   * @param {ToggleService} toggleService gestore della visibilità dei componenti
+   * @param {TogglerService} togglerService gestore della visibilità dei componenti
    */
   constructor(
     private modalService: NgbModal,
-    private toggleService: ToggleService,
+    private togglerService: TogglerService,
   ) { } // constructor
 
   /**
@@ -88,7 +88,8 @@ export class TopbarComponent implements OnInit {
    * se la sidebar è visibile la nasconde, se nascosta la visalizza
    */
   toggleSidebar() {
-    this.toggleService.showSidebar = !this.toggleService.showSidebar;
+    // inverte la visualizzazione della sidebar
+    this.togglerService.toggleSidebar();
   } // toggleSidebar
 
 } // TopbarComponent
