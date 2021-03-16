@@ -16,7 +16,7 @@ export class TogglerService {
 
   /**
    * restituisce l'emitter dello stato della sidebar
-   * ogno volta che lo stato della sidebar cambia, viene emesso un evento
+   * ogni volta che lo stato della sidebar cambia, viene emesso un evento
    * @returns {EventEmitter} emitter dello stato della sidebar
    */
   public get sidebarUpdated(): EventEmitter<boolean> {

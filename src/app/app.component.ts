@@ -11,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AppComponent {
 
   /**
-   * crea un nuovo componnet
+   * crea un nuovo componente
    * @param {TranslateService} translateService gestore delle traduzioni
    * @param {CookieService} cookieService gestore del cookie
    */
@@ -24,7 +24,7 @@ export class AppComponent {
     this.translateService.setDefaultLang('it');
     this.translateService.use(this.translateService.getBrowserLang());
     // imposta il cookie con la lingua
-    this.cookieService.set('ngx-lang', this.translateService.getBrowserLang());
+    this.cookieService.set('abt-lang', this.translateService.getBrowserLang());
   }// constructor
 
 } // AppComponent
