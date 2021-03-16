@@ -4,6 +4,7 @@ import { faAngleDown, faAngleLeft, faAngleRight, faCog, faLaughWink, faTachomete
 
 // moduli applicativi
 import { ToggleService } from '../@core/toggle.service';
+import { MENU_ITEMS } from './@config/sidebar-menu.config';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,12 +17,13 @@ export class SidebarComponent implements OnInit {
   faAngleDown = faAngleDown;
   faAngleLeft = faAngleLeft;
   faAngleRight = faAngleRight;
-  faCog = faCog;
   faLaughWink = faLaughWink;
-  faTachometerAlt = faTachometerAlt;
 
   // proprietà private
   private _shownMenu: string = '';
+
+  // proprietà pubbliche
+  menuItems: any;
 
   /**
    * crea un nuovo componente
@@ -35,6 +37,7 @@ export class SidebarComponent implements OnInit {
    * inizializza il componente
    */
   ngOnInit(): void {
+    this.menuItems = MENU_ITEMS;
   } // ngOnInit
 
   /**

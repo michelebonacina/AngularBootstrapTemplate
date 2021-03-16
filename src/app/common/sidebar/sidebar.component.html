@@ -9,74 +9,45 @@
     <div class="sidebar-brand-text mx-3">Sb Admin<sup>2</sup></div>
   </a>
 
-  <!-- Divider -->
-  <hr class="sidebar-divider my-0">
+  <div *ngFor="let menuItem of menuItems" [ngSwitch]="menuItem.type">
 
-  <!-- Nav Item - Dashboard -->
-  <li class="nav-item active">
-    <a class="nav-link" href="#" (click)="showMenu('')">
-      <fa-icon [icon]="faTachometerAlt"></fa-icon>
-      <span translate>common.sidebar.menu.dashboard</span>
-    </a>
-  </li>
+    <!-- Divider -->
+    <hr *ngSwitchCase="'divider'" class="sidebar-divider my-0">
 
-  <!-- Divider -->
-  <hr class="sidebar-divider">
-
-  <!-- Heading -->
-  <div class="sidebar-heading">
-    Section
-  </div>
-
-  <!-- Nav Item - Components Collapse Menu -->
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" (click)="showMenu('components')" [attr.aria-expanded]="isMenuShown('components')">
-      <fa-icon [icon]="faCog"></fa-icon>
-      <span>Components</span>
-      <div class="collapse-icon" *ngIf="toggleService.showSidebar">
-        <fa-icon *ngIf="!isMenuShown('components')" [icon]="faAngleRight"></fa-icon>
-        <fa-icon *ngIf="isMenuShown('components')" [icon]="faAngleDown"></fa-icon>
-      </div>
-    </a>
-    <div [ngbCollapse]="!isMenuShown('components')" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Component 1:</h6>
-        <a class="collapse-item" href="#">Selection 1</a>
-        <a class="collapse-item" href="#">Selection 2</a>
-      </div>
+    <!-- Heading -->
+    <div *ngSwitchCase="'heading'" class="sidebar-heading" translate>
+      {{menuItem.i18n}}
     </div>
-  </li>
 
-  <!-- Divider -->
-  <hr class="sidebar-divider">
+    <!-- Link -->
+    <li *ngSwitchCase="'link'" class="nav-item active">
+      <a class="nav-link" [href]="menuItem.link" (click)="showMenu('')">
+        <fa-icon [icon]="menuItem.icon"></fa-icon>
+        <span translate>{{menuItem.i18n}}</span>
+      </a>
+    </li>
 
-  <!-- Heading -->
-  <div class="sidebar-heading">
-    ANOTHER SECTION
+    <!-- Group -->
+    <li *ngSwitchCase="'group'" class="nav-item">
+      <a class="nav-link collapsed" href="#" (click)="showMenu(menuItem.name)" [attr.aria-expanded]="isMenuShown(menuItem.name)">
+        <fa-icon [icon]="menuItem.icon"></fa-icon>
+        <span translate>{{menuItem.i18n}}</span>
+        <div class="collapse-icon" *ngIf="toggleService.showSidebar">
+          <fa-icon *ngIf="!isMenuShown(menuItem.name)" [icon]="faAngleRight"></fa-icon>
+          <fa-icon *ngIf="isMenuShown(menuItem.name)" [icon]="faAngleDown"></fa-icon>
+        </div>
+      </a>
+      <div [ngbCollapse]="!isMenuShown(menuItem.name)" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <div *ngFor="let children of menuItem.childrens">
+            <h6 class="collapse-header" translate>{{children.i18n}}</h6>
+            <a *ngFor="let link of children.links" class="collapse-item" [href]="link.link" translate>{{link.i18n}}</a>
+          </div>
+        </div>
+      </div>
+    </li>
+
   </div>
-
-  <!-- Nav Item - Pages Collapse Menu -->
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" (click)="showMenu('pages')" [attr.aria-expanded]="isMenuShown('pages')">
-      <fa-icon [icon]="faCog"></fa-icon>
-      <span>Pages</span>
-      <div class="collapse-icon" *ngIf="toggleService.showSidebar">
-        <fa-icon *ngIf="!isMenuShown('pages')" [icon]="faAngleRight"></fa-icon>
-        <fa-icon *ngIf="isMenuShown('pages')" [icon]="faAngleDown"></fa-icon>
-      </div>
-    </a>
-    <div [ngbCollapse]="!isMenuShown('pages')" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Page 1:</h6>
-        <a class="collapse-item" href="#">Paragraph 1.1</a>
-        <a class="collapse-item" href="">Paragraph 1.2</a>
-        <div class="collapse-divider"></div>
-        <h6 class="collapse-header">Pages 2:</h6>
-        <a class="collapse-item" href="#">Paragraph 2.1</a>
-        <a class="collapse-item" href="#">Paragraph 2.22</a>
-      </div>
-    </div>
-  </li>
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
