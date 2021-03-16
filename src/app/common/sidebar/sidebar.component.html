@@ -20,15 +20,15 @@
     </div>
 
     <!-- Link -->
-    <li *ngSwitchCase="'link'" class="nav-item active">
-      <a class="nav-link" [href]="menuItem.link" (click)="onShowMenu('')">
+    <li *ngSwitchCase="'link'" class="nav-item" [ngClass]="{'active': isMenuShown(menuItem.name)}">
+      <a class="nav-link" [href]="menuItem.link" (click)="onShowMenu(menuItem.name)">
         <fa-icon [icon]="menuItem.icon"></fa-icon>
         <span translate>{{menuItem.i18n}}</span>
       </a>
     </li>
 
     <!-- Group -->
-    <li *ngSwitchCase="'group'" class="nav-item">
+    <li *ngSwitchCase="'group'" class="nav-item" [ngClass]="{'active': isMenuShown(menuItem.name)}">
       <a class="nav-link collapsed" href="#" (click)="onShowMenu(menuItem.name)" [attr.aria-expanded]="isMenuShown(menuItem.name)">
         <fa-icon [icon]="menuItem.icon"></fa-icon>
         <span translate>{{menuItem.i18n}}</span>
