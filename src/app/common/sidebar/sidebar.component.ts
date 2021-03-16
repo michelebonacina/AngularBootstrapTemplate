@@ -25,7 +25,7 @@ export class SidebarComponent implements OnInit {
   private _shownMenu: string = '';
 
   // proprietà pubbliche
-  menuItems = MENU_ITEMS;
+  menuItems: any;
 
   /**
    * crea un nuovo componente
@@ -39,6 +39,7 @@ export class SidebarComponent implements OnInit {
    * inizializza il componente
    */
   ngOnInit(): void {
+    this.menuItems = MENU_ITEMS;
   } // ngOnInit
 
   /**

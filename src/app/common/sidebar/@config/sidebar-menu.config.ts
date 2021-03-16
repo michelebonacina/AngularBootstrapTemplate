@@ -1,4 +1,5 @@
 // librerie
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faCog, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 
 /**
@@ -22,6 +23,10 @@ import { faCog, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
  */
 export const MENU_ITEMS = [
   {
+    name: "divider",
+    type: "divider",
+  },
+  {
     name: "dashboard",
     type: "link",
     icon: faTachometerAlt,
@@ -42,7 +47,7 @@ export const MENU_ITEMS = [
     type: "group",
     icon: faCog,
     i18n: "Components",
-    children: [
+    childrens: [
       {
         i18n: "Component 1",
         links: [
@@ -61,6 +66,10 @@ export const MENU_ITEMS = [
     ],
   },
   {
+    name: "divider",
+    type: "divider",
+  },
+  {
     name: "anothersection",
     type: "heading",
     i18n: "Another section",
@@ -70,7 +79,7 @@ export const MENU_ITEMS = [
     type: "group",
     icon: faCog,
     i18n: "Pages",
-    children: [
+    childrens: [
       {
         i18n: "Page 1",
         links: [
