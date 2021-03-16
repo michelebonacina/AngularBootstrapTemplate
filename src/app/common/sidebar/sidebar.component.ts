@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { faAngleDown, faAngleLeft, faAngleRight, faCog, faLaughWink, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 
 // moduli applicativi
-import { ToggleService } from '../@core/toggle.service';
+import { TogglerService } from '../@core/toggler.service';
 import { MENU_ITEMS } from './@config/sidebar-menu.config';
 
 @Component({
@@ -24,20 +24,28 @@ export class SidebarComponent implements OnInit {
 
   // proprietà pubbliche
   menuItems: any;
+  showSidebar: boolean = false;
 
   /**
    * crea un nuovo componente
-   * @param {ToggleService} toggleService gestore della visibilità dei componenti
+   * @param {TogglerService} togglerService gestore della visibilità dei componenti
    */
   constructor(
-    public toggleService: ToggleService
+    private togglerService: TogglerService
   ) { } // constructor
 
   /**
    * inizializza il componente
    */
   ngOnInit(): void {
+    // inizializza il menu
     this.menuItems = MENU_ITEMS;
+    // inizalizza il toggler per la visualizzazione della sidebar
+    this.togglerService.sidebarUpdated.subscribe((showSidebar: boolean) => {
+      this.showSidebar = showSidebar;
+    })
+    // imposta la visualizzazione iniziale della sidebar
+    this.togglerService.showSidebar = true;
   } // ngOnInit
 
   /**
@@ -63,10 +71,11 @@ export class SidebarComponent implements OnInit {
 
   /**
    * inverte le visibilità della sidebar
-   * se la sidebar è visibile la nasconde, se nascosta la visalizza
+   * se la sidebar è visibile la nasconde, se nascosta la visualizza
    */
   toggleSidebar() {
-    this.toggleService.showSidebar = !this.toggleService.showSidebar;
+    // inverte la visualizzazione della sidebar
+    this.togglerService.toggleSidebar();
   } // toggleSidebar
 
 } // SidebarComponent
