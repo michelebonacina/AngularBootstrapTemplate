@@ -17,9 +17,7 @@ export class SidebarComponent implements OnInit {
   faAngleDown = faAngleDown;
   faAngleLeft = faAngleLeft;
   faAngleRight = faAngleRight;
-  faCog = faCog;
   faLaughWink = faLaughWink;
-  faTachometerAlt = faTachometerAlt;
 
   // proprietà private
   private _shownMenu: string = '';

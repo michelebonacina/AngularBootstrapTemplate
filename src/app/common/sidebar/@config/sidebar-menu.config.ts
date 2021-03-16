@@ -1,5 +1,4 @@
 // librerie
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faCog, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 
 /**
