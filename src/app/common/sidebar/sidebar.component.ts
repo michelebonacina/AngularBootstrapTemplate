@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit {
     // inizializza il menu
     this.menuItems = MENU_ITEMS;
     // inizalizza il toggler per la visualizzazione della sidebar
-    this.togglerService.sidebarUpdated.subscribe((showSidebar: boolean) => {
+    this.togglerService.sidebarChanged.subscribe((showSidebar: boolean) => {
       this.showSidebar = showSidebar;
     })
     // imposta la visualizzazione iniziale della sidebar

@@ -6,7 +6,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class TogglerService {
 
   private _showSidebar: boolean = false;
-  private _sidebarUpdated = new EventEmitter<boolean>();
+  private _sidebarChanged = new EventEmitter<boolean>();
 
   /**
    * crea un nuovo service
@@ -19,9 +19,9 @@ export class TogglerService {
    * ogni volta che lo stato della sidebar cambia, viene emesso un evento
    * @returns {EventEmitter} emitter dello stato della sidebar
    */
-  public get sidebarUpdated(): EventEmitter<boolean> {
-    return this._sidebarUpdated;
-  } // get sidebarUpdated
+  public get sidebarChanged(): EventEmitter<boolean> {
+    return this._sidebarChanged;
+  } // get sidebarChanged
 
   /**
    * imposta la visibilità della sidebar
@@ -30,7 +30,7 @@ export class TogglerService {
   public set showSidebar(show: boolean) {
     this._showSidebar = show;
     // TODO sostituire con observable
-    this.sidebarUpdated.emit(this._showSidebar);
+    this.sidebarChanged.emit(this._showSidebar);
   } // get showSidebar
 
   /**
