@@ -5,6 +5,7 @@ import { faBars, faBell, faCog, faDonate, faEnvelope, faExclamationTriangle, faF
 
 // moduli applicativi
 import { TogglerService } from '../@core/toggler.service';
+import { APP_CONFIG } from 'src/app/@config/app.config';
 
 @Component({
   selector: 'app-topbar',
@@ -28,6 +29,9 @@ export class TopbarComponent implements OnInit {
 
   // proprietà private
   private _shownMenu: string = '';
+
+  // proprietà pubbliche
+  appConfig = APP_CONFIG;
 
   /**
    * crea un nuovo componente
