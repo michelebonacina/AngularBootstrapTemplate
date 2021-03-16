@@ -21,7 +21,7 @@
 
     <!-- Link -->
     <li *ngSwitchCase="'link'" class="nav-item active">
-      <a class="nav-link" [href]="menuItem.link" (click)="showMenu('')">
+      <a class="nav-link" [href]="menuItem.link" (click)="onShowMenu('')">
         <fa-icon [icon]="menuItem.icon"></fa-icon>
         <span translate>{{menuItem.i18n}}</span>
       </a>
@@ -29,7 +29,7 @@
 
     <!-- Group -->
     <li *ngSwitchCase="'group'" class="nav-item">
-      <a class="nav-link collapsed" href="#" (click)="showMenu(menuItem.name)" [attr.aria-expanded]="isMenuShown(menuItem.name)">
+      <a class="nav-link collapsed" href="#" (click)="onShowMenu(menuItem.name)" [attr.aria-expanded]="isMenuShown(menuItem.name)">
         <fa-icon [icon]="menuItem.icon"></fa-icon>
         <span translate>{{menuItem.i18n}}</span>
         <div class="collapse-icon" *ngIf="showSidebar">
@@ -54,9 +54,14 @@
 
   <!-- Sidebar Toggler (Sidebar) -->
   <div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle" (click)="toggleSidebar()">
-      <fa-icon *ngIf="!showSidebar" [icon]="faAngleRight"></fa-icon>
-      <fa-icon *ngIf="showSidebar" [icon]="faAngleLeft"></fa-icon>
+    <button class="rounded-circle border-0" id="sidebarToggle" (click)="onToggleSidebar()">
+      <div *ngIf="showSidebar; then closeSidebar else openSidebar"></div>
+      <ng-template #closeSidebar>
+        <fa-icon [icon]="faAngleLeft"></fa-icon>
+      </ng-template>
+      <ng-template #openSidebar>
+        <fa-icon [icon]="faAngleRight"></fa-icon>
+      </ng-template>
     </button>
   </div>
 

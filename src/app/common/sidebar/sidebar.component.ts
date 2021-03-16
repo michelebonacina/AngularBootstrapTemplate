@@ -52,7 +52,7 @@ export class SidebarComponent implements OnInit {
    * visualizza il menu specificato
    * @param {string} menu menu da visualizzare
    */
-  showMenu(menu: string) {
+  onShowMenu(menu: string) {
     if (this.isMenuShown(menu)) {
       this._shownMenu = '';
     } else {
@@ -73,7 +73,7 @@ export class SidebarComponent implements OnInit {
    * inverte le visibilità della sidebar
    * se la sidebar è visibile la nasconde, se nascosta la visualizza
    */
-  toggleSidebar() {
+  onToggleSidebar() {
     // inverte la visualizzazione della sidebar
     this.togglerService.toggleSidebar();
   } // toggleSidebar

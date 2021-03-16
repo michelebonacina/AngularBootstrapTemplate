@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
   <!-- Sidebar Toggle (Topbar) -->
-  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" (click)="toggleSidebar()">
+  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" (click)="onToggleSidebar()">
     <fa-icon [icon]="faBars"></fa-icon>
   </button>
 
@@ -23,7 +23,7 @@
 
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">
-      <a class="nav-link dropdown-toggle" href="#" (click)="showMenu('alerts')" role="button" aria-expanded="false">
+      <a class="nav-link dropdown-toggle" href="#" (click)="onShowMenu('alerts')" role="button" aria-expanded="false">
         <fa-icon [icon]="faBell"></fa-icon>
         <!-- Counter - Alerts -->
         <span class="badge badge-danger badge-counter">3+</span>
@@ -72,7 +72,7 @@
 
     <!-- Nav Item - Messages -->
     <li class="nav-item dropdown no-arrow mx-1">
-      <a class="nav-link dropdown-toggle" href="#" (click)="showMenu('messages')" role="button" aria-expanded="false">
+      <a class="nav-link dropdown-toggle" href="#" (click)="onShowMenu('messages')" role="button" aria-expanded="false">
         <fa-icon [icon]="faEnvelope"></fa-icon>
         <!-- Counter - Messages -->
         <span class="badge badge-danger badge-counter">7</span>
@@ -135,7 +135,7 @@
 
     <!-- Nav Item - User Information -->
     <li class="nav-item dropdown no-arrow">
-      <a class="nav-link dropdown-toggle" href="#" (click)="showMenu('user')" role="button" aria-expanded="false">
+      <a class="nav-link dropdown-toggle" href="#" (click)="onShowMenu('user')" role="button" aria-expanded="false">
         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
         <img class="img-profile rounded-circle" src="/assets/img/undraw_profile.svg">
       </a>
@@ -154,7 +154,7 @@
           common.topbar.userMenu.activityLog
         </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" (click)="showLogoutDialog(content)" translate>
+        <a class="dropdown-item" href="#" (click)="onShowLogoutDialog(content)" translate>
           <fa-icon [icon]="faSignOutAlt" class="mr-2 text-gray-400"></fa-icon>
           common.topbar.userMenu.logout
         </a>

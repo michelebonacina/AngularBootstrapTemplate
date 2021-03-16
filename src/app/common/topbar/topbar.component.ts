@@ -49,7 +49,7 @@ export class TopbarComponent implements OnInit {
    * visualizza il menu specificato
    * @param {string} menu menu da visualizzare
    */
-  showMenu(menu: string) {
+  onShowMenu(menu: string) {
     if (this.isMenuShown(menu)) {
       this._shownMenu = '';
     } else {
@@ -70,9 +70,9 @@ export class TopbarComponent implements OnInit {
    * visualizza il popup di conferma del logout
    * @param {any} content contenuto da visualizzare nel popup
    */
-  showLogoutDialog(content: any) {
+  onShowLogoutDialog(content: any) {
     // nasconde il menu
-    this.showMenu('');
+    this.onShowMenu('');
     // visualizza la finestra modale
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       // chiusa con un pulsante
@@ -87,7 +87,7 @@ export class TopbarComponent implements OnInit {
    * inverte le visibilità della sidebar
    * se la sidebar è visibile la nasconde, se nascosta la visalizza
    */
-  toggleSidebar() {
+  onToggleSidebar() {
     // inverte la visualizzazione della sidebar
     this.togglerService.toggleSidebar();
   } // toggleSidebar
