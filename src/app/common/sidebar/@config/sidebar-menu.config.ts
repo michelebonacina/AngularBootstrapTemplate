@@ -30,7 +30,7 @@ export const MENU_ITEMS = [
     type: "link",
     icon: faTachometerAlt,
     i18n: "common.sidebar.menu.dashboard",
-    link: "/",
+    link: "#",
   },
   {
     name: "divider",
@@ -53,12 +53,12 @@ export const MENU_ITEMS = [
           {
             name: "selection1",
             i18n: "Selection 1",
-            link: "/",
+            link: "#",
           },
           {
             name: "selection2",
             i18n: "Selection 2",
-            link: "/",
+            link: "#",
           },
         ],
       },
@@ -85,12 +85,12 @@ export const MENU_ITEMS = [
           {
             name: "paragraph11",
             i18n: "Paragraph 1.1",
-            link: "/",
+            link: "#",
           },
           {
             name: "paragraph12",
             i18n: "Paragraph 1.2",
-            link: "/",
+            link: "#",
           },
         ],
       },
@@ -100,12 +100,12 @@ export const MENU_ITEMS = [
           {
             name: "paragraph21",
             i18n: "Paragraph 2.1",
-            link: "/",
+            link: "#",
           },
           {
             name: "paragraph22",
             i18n: "Paragraph 2.2",
-            link: "/",
+            link: "#",
           },
         ],
       },
